@@ -29,6 +29,9 @@ jobs:
      - name: installing dependencies
        run: composer install
 
+     - name: Env variables
+       run: echo "${{secrets.ENV_VAR }}" > .env
+
      - name: Make zip pkg
        run: zip -r ${{ env.DEPLOY_PKG_NAME }} ./ -x *.git*
        
