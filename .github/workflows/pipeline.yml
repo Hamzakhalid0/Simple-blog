@@ -1,11 +1,11 @@
 name: AWS-BeanStalk-Pipeline
 
 env:
-  APP_S3_BUCKET_NAME: "elasticbeanstalk-us-east-1-122759493898"
+  APP_S3_BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
   APP_NAME : "Simple-blog"
   ENV_NAME: "Simpleblog-env"
   DEPLOY_PKG_NAME: "deploy-app_${{ github.sha }}.zip"
-  AWS_DEFAULT_REGION: "us-east-1"
+  AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
 
 on:
   push:
