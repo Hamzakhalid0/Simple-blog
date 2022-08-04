@@ -27,10 +27,13 @@ jobs:
         php-version: 7.4
 
      - name: installing dependencies
-       run: composer install
+       run: composer update \ composer install
 
      - name: Env variables
        run: echo "${{secrets.ENV_VAR }}" > .env
+
+     - name: generate key
+       run: php artisan key:generate
 
      - name: Make zip pkg
        run: zip -r ${{ env.DEPLOY_PKG_NAME }} ./ -x *.git*
